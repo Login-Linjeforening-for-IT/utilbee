@@ -1,0 +1,37 @@
+{
+  "name": "utilbee",
+  "version": "1.0.0",
+  "description": "Shared utilities for reuse across Login projects",
+  "homepage": "https://github.com/Login-Linjeforening-for-IT/utilbee#readme",
+  "bugs": {
+    "url": "https://github.com/Login-Linjeforening-for-IT/utilbee/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Login-Linjeforening-for-IT/utilbee.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./utils": "./dist/src/utils/index.js"
+  },
+  "scripts": {
+    "build:clean": "rm -rf dist",
+    "build:ts": "tsc --declaration",
+    "build": "npm run build:clean && npm run build:ts",
+    "lint": "eslint --fix ./src"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.3",
+    "@stylistic/eslint-plugin": "^5.6.1",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.1"
+  }
+}
