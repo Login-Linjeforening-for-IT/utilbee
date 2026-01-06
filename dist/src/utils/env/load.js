@@ -1,5 +1,5 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import fs from 'fs';
+import path from 'path';
 import parse from "./parse.js";
 export default function load(options = {}) {
     const paths = Array.isArray(options.path) ? options.path : [options.path ?? '.env'];
