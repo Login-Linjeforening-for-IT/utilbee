@@ -1,4 +1,3 @@
-
 const regex = new RegExp(
     // Start of line and optional whitespace
     '^\\s*' +
