@@ -2,6 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import parse from "./parse.js";
 export default function load(options = {}) {
+    if (typeof window !== 'undefined') {
+        return { parsed: {} };
+    }
     const paths = Array.isArray(options.path) ? options.path : [options.path ?? '.env'];
     const parsedAll = {};
     for (const file of paths) {
