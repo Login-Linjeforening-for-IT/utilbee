@@ -20,8 +20,9 @@ export default function envParse(src) {
         if (!key)
             continue;
         let value = (match[2] || '').trim();
+        const maybeQuote = value[0];
         value = value.replace(/^(['"`])([\s\S]*)\1$/mg, '$2');
-        if (value[0] === '"') {
+        if (maybeQuote === '"') {
             value = value.replace(/\\n/g, '\n');
             value = value.replace(/\\r/g, '\r');
         }
