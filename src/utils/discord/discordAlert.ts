@@ -1,4 +1,4 @@
-import { Data, DiscordAlertProps } from 'utilbee/utils'
+import type { Data, DiscordAlertProps } from 'utilbee/utils'
 
 export default async function discordAlert({
     application,

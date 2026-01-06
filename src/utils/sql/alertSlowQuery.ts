@@ -1,4 +1,4 @@
-import { Data, SlowQueryProps } from 'utilbee/utils'
+import type { Data, SlowQueryProps } from 'utilbee/utils'
 
 export default async function alertSlowQuery({
     application,
