@@ -3,19 +3,22 @@ import path from 'node:path'
 import parse from './parse.ts'
 
 export interface LoadOptions {
-    path?: string
+    path?: string | string[]
     encoding?: BufferEncoding
     override?: boolean
 }
 
 export default function load(options: LoadOptions = {}) {
-    const envPath = path.resolve(process.cwd(), options.path ?? '.env')
+    const paths = Array.isArray(options.path) ? options.path : [options.path ?? '.env']
+    const parsedAll: Record<string, string> = {}
 
-    if (!fs.existsSync(envPath)) {
-        return { error: new Error(`File not found: ${envPath}`) }
-    }
+    for (const file of paths) {
+        const envPath = path.resolve(process.cwd(), file)
 
-    try {
+        if (!fs.existsSync(envPath)) {
+            continue
+        }
+
         const parsed = parse(fs.readFileSync(envPath, { encoding: options.encoding ?? 'utf8' }))
 
         for (const key in parsed) {
@@ -24,11 +27,11 @@ export default function load(options: LoadOptions = {}) {
                 if (options.override || process.env[key] === undefined) {
                     process.env[key] = value
                 }
+                parsedAll[key] = value
             }
         }
-
-        return { parsed }
-    } catch (error) {
-        return { error }
     }
+
+    console.log(`Injected ${Object.keys(parsedAll).length} environment variables. From: ${paths.join(', ')}`)
+    return { parsed: parsedAll }
 }
