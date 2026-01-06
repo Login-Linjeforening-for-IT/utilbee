@@ -4,4 +4,4 @@ export { getCookie, setCookie, removeCookie } from './cookies/cookies.ts'
 
 // Environment variable
 export { default as envParse } from './env/parse.ts'
-export { default as envLoad } from './env/load.ts'
+

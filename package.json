@@ -1,6 +1,6 @@
 {
   "name": "utilbee",
-  "version": "1.2.8",
+  "version": "1.3.0",
   "description": "Shared utilities for reuse across Login projects",
   "homepage": "https://github.com/Login-Linjeforening-for-IT/utilbee#readme",
   "bugs": {
@@ -15,13 +15,15 @@
   "type": "module",
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
-  "browser": {
-    "node:fs": false,
-    "node:path": false
-  },
   "exports": {
-    ".": "./dist/src/index.js",
-    "./utils": "./dist/src/utils/index.js"
+    ".": {
+      "browser": "./dist/src/index.js",
+      "default": "./dist/src/server.js"
+    },
+    "./utils": {
+      "browser": "./dist/src/utils/index.js",
+      "default": "./dist/src/utils/server.js"
+    }
   },
   "scripts": {
     "build:clean": "rm -rf dist",

@@ -9,10 +9,6 @@ export interface LoadOptions {
 }
 
 export default function load(options: LoadOptions = {}) {
-    if (typeof window !== 'undefined') {
-        return { parsed: {} }
-    }
-
     const paths = Array.isArray(options.path) ? options.path : [options.path ?? '.env']
     const parsedAll: Record<string, string> = {}
 
