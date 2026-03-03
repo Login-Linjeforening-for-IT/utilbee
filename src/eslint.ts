@@ -1,9 +1,9 @@
 import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
+import tseslint, { type ConfigArray } from 'typescript-eslint'
 import typescriptParser from '@typescript-eslint/parser'
 import stylistic from '@stylistic/eslint-plugin'
 
-export default [
+const config: ConfigArray = [
     eslint.configs.recommended,
     ...tseslint.configs.recommended,
     {
@@ -42,3 +42,5 @@ export default [
         },
     },
 ]
+
+export default config

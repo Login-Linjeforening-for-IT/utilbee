@@ -23,7 +23,8 @@
     "./utils": {
       "browser": "./dist/src/utils/index.js",
       "default": "./dist/src/utils/server.js"
-    }
+    },
+    "./eslint": "./dist/src/eslint.js"
   },
   "scripts": {
     "build:clean": "rm -rf dist",
@@ -31,13 +32,21 @@
     "build": "npm run build:clean && npm run build:ts",
     "lint": "eslint --fix ./src"
   },
+  "peerDependencies": {
+    "@eslint/js": ">=10",
+    "@stylistic/eslint-plugin": ">=5",
+    "@typescript-eslint/parser": ">=8",
+    "eslint": ">=10",
+    "typescript-eslint": ">=8"
+  },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.3",
-    "@stylistic/eslint-plugin": "^5.6.1",
-    "@types/node": "^24.10.1",
-    "eslint": "^9.39.1",
+    "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^8.56.1",
+    "@types/node": "^25.3.3",
+    "eslint": "^10.0.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.48.1"
+    "typescript-eslint": "^8.56.1"
   }
 }
