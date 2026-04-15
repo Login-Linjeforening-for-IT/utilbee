@@ -2,7 +2,7 @@
   "name": "utilbee",
   "description": "Shared utilities for reuse across Login projects",
   "homepage": "https://github.com/Login-Linjeforening-for-IT/utilbee#readme",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "main": "./dist/src/index.js",
   "type": "module",
   "repository": {
